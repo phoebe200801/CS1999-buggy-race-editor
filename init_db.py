@@ -42,9 +42,11 @@ con.execute("""
     qty_tyres             INTEGER DEFAULT 5,
     
     armour                VARCHAR(20),
-    fireproof             VARCHAR(3) DEFAULT no,
-    insulated             VARCHAR(3) DEFAULT no,
-    antibiotic            VARCHAR(3) DEFAULT no
+    fireproof             VARCHAR(3),
+    insulated             VARCHAR(3),
+    antibiotic            VARCHAR(3),
+    
+    attack                VARCHAR(20)
   )
 
 """)
