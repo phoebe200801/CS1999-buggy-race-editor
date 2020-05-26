@@ -38,7 +38,8 @@ con.execute("""
     aux_power_units       INTEGER DEFAULT 10,
     hamster_booster       INTEGER DEFAULT 5,
     
-    tyres                 VARCHAR(20)
+    tyres                 VARCHAR(20),
+    qty_tyres             INTEGER DEFAULT 5
   )
 
 """)
