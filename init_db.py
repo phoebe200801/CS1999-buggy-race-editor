@@ -47,7 +47,9 @@ con.execute("""
     antibiotic            VARCHAR(3),
     
     attack                VARCHAR(20),
-    qty_attacks           INTEGER DEFAULT 2
+    qty_attacks           INTEGER DEFAULT 2,
+    
+    banging               VARCHAR(3)
   )
 
 """)
