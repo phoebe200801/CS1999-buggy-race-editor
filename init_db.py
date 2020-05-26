@@ -32,6 +32,7 @@ con.execute("""
     flag_pattern          VARCHAR(20),
     power_type            VARCHAR(20),
     power_units           INTEGER DEFAULT 10
+    aux_power_type        VARCHAR(20)
   )
 
 """)
