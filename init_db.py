@@ -46,7 +46,8 @@ con.execute("""
     insulated             VARCHAR(3),
     antibiotic            VARCHAR(3),
     
-    attack                VARCHAR(20)
+    attack                VARCHAR(20),
+    qty_attacks           INTEGER DEFAULT 2
   )
 
 """)
