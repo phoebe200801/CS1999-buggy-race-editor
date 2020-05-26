@@ -49,7 +49,8 @@ con.execute("""
     attack                VARCHAR(20),
     qty_attacks           INTEGER DEFAULT 2,
     
-    banging               VARCHAR(3)
+    banging               VARCHAR(3),
+    algo                  VARCHAR(20)
   )
 
 """)
