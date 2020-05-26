@@ -41,7 +41,8 @@ con.execute("""
     tyres                 VARCHAR(20),
     qty_tyres             INTEGER DEFAULT 5,
     
-    armour                VARCHAR(20)
+    armour                VARCHAR(20),
+    fireproof             VARCHAR(3)
   )
 
 """)
