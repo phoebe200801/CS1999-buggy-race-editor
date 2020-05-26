@@ -39,7 +39,9 @@ con.execute("""
     hamster_booster       INTEGER DEFAULT 5,
     
     tyres                 VARCHAR(20),
-    qty_tyres             INTEGER DEFAULT 5
+    qty_tyres             INTEGER DEFAULT 5,
+    
+    armour                VARCHAR(20)
   )
 
 """)
