@@ -27,12 +27,15 @@ con.execute("""
   CREATE TABLE IF NOT EXISTS buggies (
     id                    INTEGER PRIMARY KEY,
     qty_wheels            INTEGER DEFAULT 4,
+    
     flag_color            VARCHAR(20),
     flag_color_secondary  VARCHAR(20),
     flag_pattern          VARCHAR(20),
+    
     power_type            VARCHAR(20),
-    power_units           INTEGER DEFAULT 10
-    aux_power_type        VARCHAR(20)
+    power_units           INTEGER DEFAULT 10,
+    aux_power_type        VARCHAR(20),
+    aux_power_units       INTEGER DEFAULT 10
   )
 
 """)
