@@ -43,7 +43,8 @@ con.execute("""
     
     armour                VARCHAR(20),
     fireproof             VARCHAR(3) DEFAULT no,
-    insulated             VARCHAR(3) DEFAULT no
+    insulated             VARCHAR(3) DEFAULT no,
+    antibiotic            VARCHAR(3) DEFAULT no
   )
 
 """)
