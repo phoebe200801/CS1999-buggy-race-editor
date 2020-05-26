@@ -36,15 +36,16 @@ def create_buggy():
       power_type = request.form['power_type']
       power_units = request.form['power_units']
       aux_power_type = request.form['aux_power_type']
+      aux_power_units = request.form['aux_power_units']
       
       #is qty_wheels a number?
       #is qty_wheels an even number?
       
-      msg = "qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}"
+      msg = "qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}"
       
       with sql.connect(DATABASE_FILE) as con:
         cur = con.cursor()
-        cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type=?, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, DEFAULT_BUGGY_ID))
         con.commit()
         msg = "Record successfully saved"
     except:
