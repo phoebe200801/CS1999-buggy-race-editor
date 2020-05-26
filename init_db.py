@@ -30,7 +30,8 @@ con.execute("""
     flag_color            VARCHAR(20),
     flag_color_secondary  VARCHAR(20),
     flag_pattern          VARCHAR(20),
-    power_type            VARCHAR(20)
+    power_type            VARCHAR(20),
+    power_units           INTEGER DEFAULT 10
   )
 
 """)
@@ -45,6 +46,7 @@ if len(rows) == 0:
   cur.execute("INSERT INTO buggies (qty_wheels) VALUES (4)")
   con.commit()
   print("- Added one 4-wheeled buggy")
+  print("- Added 10 units of fuel")
 else:
   print("- Found a buggy in the database, nice")
 print("- done")
