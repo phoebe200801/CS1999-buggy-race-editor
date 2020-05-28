@@ -33,7 +33,7 @@ def create_buggy():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: {qty_wheels}"
         return render_template("buggy-form.html", msg = msg)
     if not power_units.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {power_units}"
         return render_template("buggy-form.html", msg = msg)
     if not aux_power_units.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER"
