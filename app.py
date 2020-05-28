@@ -26,6 +26,14 @@ def create_buggy():
     return render_template("buggy-form.html")
   elif request.method == 'POST':
     msg=""
+    
+    qty_wheels = request.form['qty_wheels']
+    
+    if not qty_wheels.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        return render_template("buggy-form.html", msg = msg)
+        
+        
     try:
       qty_wheels = request.form['qty_wheels']
       
