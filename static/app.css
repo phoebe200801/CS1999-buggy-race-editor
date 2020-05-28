@@ -3,17 +3,17 @@ html{
   padding: 0; 
 }
 body {
-  font-family: "Source Sans Pro","Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-family: "Rockwell", serif;
   margin: 0;
   padding: 0;
   font-size: 1.2em;
   color: #000000;
   background: repeating-linear-gradient(
     45deg,
-    #ffffee,
-    #ffffee 2em,
-    #eeeeee 2em,
-    #eeeeee 4em
+    pink,
+    grey 2em,
+    #6699cc 2em,
+    white 4em
   );
 }
 .main-content {
@@ -24,9 +24,19 @@ body {
 }
 h1 {
   margin: 0 0 1em 0;
+  text-align: center;
+  font-family: Rockwell, serif;
+  color: black;
 }
+h2 {
+    text-align: center;
+    font-family: Rockwell, serif;
+    color: grey;
+}
+
 p {
   margin: 1em 0;
+  font-family: Rockwell, serif;
 }
 a.button, input.button {
   border:1px solid black;
@@ -37,6 +47,7 @@ a.button, input.button {
   background-color: white;
   color: black;
   box-shadow: 5px 5px 5px #999999;
+  font-family: Rockwell, serif;
 }
 a.button:hover {
   background-color: black;
