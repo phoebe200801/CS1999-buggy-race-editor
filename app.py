@@ -30,10 +30,24 @@ def create_buggy():
     qty_wheels = request.form['qty_wheels']
     
     if not qty_wheels.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {qty_wheels}"
+        return render_template("buggy-form.html", msg = msg)
+    if not power_units.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER"
         return render_template("buggy-form.html", msg = msg)
-        
-        
+    if not aux_power_units.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        return render_template("buggy-form.html", msg = msg)
+    if not hamster_booster.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        return render_template("buggy-form.html", msg = msg)
+    if not qty_tyres.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        return render_template("buggy-form.html", msg = msg)
+    if not qty_attacks.isdigit():
+        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        return render_template("buggy-form.html", msg = msg)
+    
     try:
       qty_wheels = request.form['qty_wheels']
       
@@ -60,9 +74,6 @@ def create_buggy():
       
       banging = request.form['banging']
       algo = request.form['algo']
-      
-      #is qty_wheels a number?
-      #is qty_wheels an even number?
       
       msg = "qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
       
