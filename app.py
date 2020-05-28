@@ -36,16 +36,16 @@ def create_buggy():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: {power_units}"
         return render_template("buggy-form.html", msg = msg)
     if not aux_power_units.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {aux_power_units}"
         return render_template("buggy-form.html", msg = msg)
     if not hamster_booster.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {hamster_booster}"
         return render_template("buggy-form.html", msg = msg)
     if not qty_tyres.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {qty_tyres}"
         return render_template("buggy-form.html", msg = msg)
     if not qty_attacks.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: {qty_attacks}"
         return render_template("buggy-form.html", msg = msg)
     
     try:
