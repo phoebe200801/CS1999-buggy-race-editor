@@ -2,6 +2,7 @@ html{
   margin:0;
   padding: 0; 
 }
+
 body {
   font-family: "Rockwell", serif;
   margin: 0;
@@ -10,24 +11,29 @@ body {
   color: #000000;
   background: repeating-linear-gradient(
     45deg,
-    pink,
-    grey 2em,
-    #6699cc 2em,
-    white 4em
+    hotpink,
+    pink 2em,
+    hotpink 2em,
+    pink 4em
   );
 }
+
 .main-content {
   min-height:100vh;
   padding: 1em;
-  background: white;
+  background: lightgrey;
   margin: 0 0 0 3em;
 }
+
 h1 {
   margin: 0 0 1em 0;
   text-align: center;
   font-family: Rockwell, serif;
-  color: black;
-}
+  color: pink;
+  -webkit-text-stroke-color: grey;
+  -webkit-text-stroke-width: 1px;
+  }
+
 h2 {
     text-align: center;
     font-family: Rockwell, serif;
@@ -38,38 +44,51 @@ p {
   margin: 1em 0;
   font-family: Rockwell, serif;
 }
+
 a.button, input.button {
-  border:1px solid black;
+  border:1px solid grey;
   padding:0.5em;
   margin:0.5em;
   border-radius: 0.25em;
   text-decoration: none;
-  background-color: white;
+  background-color: pink;
   color: black;
   box-shadow: 5px 5px 5px #999999;
   font-family: Rockwell, serif;
+  color: grey;
 }
+
 a.button:hover {
-  background-color: black;
-  color: white;
+  background-color: grey;
+  color: pink;
+  -webkit-text-stroke-color: hotpink;
+  -webkit-text-stroke-width: 1px;
 }
+
 input {
   padding: 0.5em;
   font-size:100%;
 }
+
 input.button {
   background-color: #99ff99;
 }
+
 table {
   border:1px solid black;
   border-collapse: collapse;
   margin: 0 0 2em 0;
+  
 }
+
 table td, table th {
   padding: 0.25em;
   border: 1px solid #999;
   padding: 0.5rem;
+  background-color: pink;
+  color: grey;
 }
+
 .spacer {
   margin: 3em 0;
 }
