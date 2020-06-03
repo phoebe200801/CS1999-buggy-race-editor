@@ -18,7 +18,15 @@
     
     <p>
     <label for="flag_color">Colour of Flag:</label>
-    <input type="text" name="flag_color" value="{{buggy['flag_color']}}"/>
+    <select name="flag_color">
+    
+    <option>plain</option>
+    <option>vstripe</option>
+    <option>hstripe</option>
+    <option>dstripe</option>
+    <option>spot</option>
+    
+    <select value="{{buggy['flag_color']}}"/>
     </p>
     
     <p>
