@@ -111,7 +111,16 @@
     
     <p>
         <lable for="armour">Armour:</label>
-        <input type="text" name="armour" value="{{buggy['armour']}}"/>
+        <select name="armour">
+            
+            <option>none</option>
+            <option>wood</option>
+            <option>aluminium</option>
+            <option>thinsteel</option>
+            <option>thicksteel</option>
+            <option>titanium</option>
+            
+        <select value="{{buggy['armour']}}"/>
     </p>
     
     <p>
