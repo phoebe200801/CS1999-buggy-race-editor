@@ -18,15 +18,7 @@
     
     <p>
     <label for="flag_color">Colour of Flag:</label>
-    <select name="flag_color">
-    
-    <option>plain</option>
-    <option>vstripe</option>
-    <option>hstripe</option>
-    <option>dstripe</option>
-    <option>spot</option>
-    
-    <select value="{{buggy['flag_color']}}"/>
+    <input type="text" name="flag_color" value="{{buggy['flag_color']}}"/>
     </p>
     
     <p>
@@ -36,12 +28,34 @@
     
     <p>
     <label for="flag_pattern">Flag Pattern:</label>
-    <input type="text" name="flag_pattern" value="{{buggy['flag_pattern']}}"/>
+    <select name="flag_pattern">
+        
+        <option>plain</option>
+        <option>vstripe</option>
+        <option>hstripe</option>
+        <option>dstripe</option>
+        <option>checker</option>
+        <option>spot</option>
+        
+    <select value="{{buggy['flag_pattern']}}"/>
     </p>
     
     <p>
     <lable for="power_type">Power Type:</label>
-    <input type="text" name="power_type" value="{{buggy['power_type']}}"/>
+    <select name="power_type">
+        
+        <option>petrol</option>
+        <option>fusion</option>
+        <option>steam</option>
+        <option>bio</option>
+        <option>electric</option>
+        <option>rocket</option>
+        <option>hamster</option>
+        <option>thermonuclear</option>
+        <option>solar</option>
+        <option>wind</option>
+        
+    <select value="{{buggy['power_type']}}"/>
     </p>
     
     <p>
