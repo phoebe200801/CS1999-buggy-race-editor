@@ -155,7 +155,15 @@
     
     <p>
         <lable for="attack">Offensive Capability:</label>
-        <input type="text" name="attack" value="{{buggy['attack']}}"/>
+        <select name="attack">
+            
+            <option>none</option>
+            <option>spike</option>
+            <option>flame</option>
+            <option>charge</option>
+            <option>biohazard</option>
+            
+        <select value="{{buggy['attack']}}"/>
     </p>
     
     <p>
