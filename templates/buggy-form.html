@@ -127,8 +127,8 @@
         <lable for="fireproof">Fireproof?:</label>
         <select name="fireproof">
             
-            <option>Yes</option>
             <option>No</option>
+            <option>Yes</option>
             
         <select value="{{buggy['fireproof']}}"/>
     </p>
@@ -137,8 +137,8 @@
         <lable for="insulated">Insulated?:</label>
         <select name="insulated">
             
-            <option>Yes</option>
             <option>No</option>
+            <option>Yes</option>
             
         <select value="{{buggy['insulated']}}"/>
     </p>
@@ -147,8 +147,8 @@
         <lable for="antibiotic">Antibiotic?:</label>
         <select name="antibiotic">
             
-            <option>Yes</option>
             <option>No</option>
+            <option>Yes</option>
             
         <select value="{{buggy['antibiotic']}}"/>
     </p>
@@ -175,8 +175,8 @@
         <lable for="banging">Sound System?:</label>
         <select name="banging">
             
-            <option>Yes</option>
-            <option>No</option>g
+            <option>No</option>
+            <option>Yes</option>g
             
         <select value="{{buggy['banging']}}"/>
     </p>
@@ -206,6 +206,36 @@
 <style>
     h1{
         font-family: Rockwell, serif;
+        text-align: center;
     }
+
+    p {
+        text-align: left;
+        display: inline-block;
+        overflow: hidden;
+        clear: both;
+        padding: 10px;
+    }
+
+    form {
+        width: 0px;
+        padding: 10px;
+        display: inline-block;
+    }
+
+    input, select {
+        font-family: Rockwell, serif;
+        color: grey;
+        font-size: 20px;
+        
+        width: 250px;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #FDECEC;
+        border-color: white;
+    }
+
+
 </style>
 {% endblock %}
