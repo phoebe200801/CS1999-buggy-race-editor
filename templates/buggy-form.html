@@ -93,7 +93,15 @@
     
     <p>
        <lable for="tyres">Type of Tyres:</label>
-           <input type="text" name="tyres" value="{{buggy['tyres']}}"/>
+           <select name="tyres">
+               
+               <option>knobbly</option>
+               <option>slick</option>
+               <option>steelband</option>
+               <option>reactive</option>
+               <option>meglev</option>
+               
+            <select value="{{buggy['tyres']}}"/>
     </p>
     
     <p>
