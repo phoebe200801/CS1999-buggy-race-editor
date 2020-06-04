@@ -50,7 +50,9 @@ con.execute("""
     qty_attacks           INTEGER DEFAULT 2,
     
     banging               VARCHAR(3),
-    algo                  VARCHAR(20)
+    algo                  VARCHAR(20),
+    
+    total_cost            INTEGER
   )
 
 """)
