@@ -23,14 +23,22 @@ def home():
 @app.route('/new', methods = ['POST', 'GET'])
 def create_buggy():
   if request.method == 'GET':
-  con = sql.connect(DATABASE_FILE)
-  con.row_factory = sql.Row
-  cur = con.cursor()
-  cur.execute("SELECT * FROM buggies")
-  record = cur.fetchone();
+  
+    con = sql.connect(DATABASE_FILE)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute("SELECT * FROM buggies")
+    record = cur.fetchone();
   
     return render_template("buggy-form.html", buggy = record)
   elif request.method == 'POST':
+  
+    con = sql.connect(DATABASE_FILE)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute("SELECT * FROM buggies")
+    record = cur.fetchone();
+    
     msg=""
     
     qty_wheels = request.form['qty_wheels']
@@ -40,24 +48,32 @@ def create_buggy():
     qty_tyres = request.form['qty_tyres']
     qty_attacks = request.form['qty_attacks']
     
+    if int(qty_wheels)%2 != 0:
+        msg = f"RULE VIOLATION! PLEASE ENTER AN EVEN INTEGER: Number of Wheels"
+        return render_template("buggy-form.html", msg = msg, buggy = record)
+        
+    if int(qty_tyres) < int(qty_wheels):
+        msg = f"RULE VIOLATION! PLEASE ENTER AN INTEGER GREATER THAN", qty_wheels, ": Number of Tyres"
+        return render_template("buggy-form.html", msg = msg, buggy = record)
+    
     if not qty_wheels.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Wheels"
-        return render_template("buggy-form.html", msg = msg)
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not power_units.isdigit():
-        msg = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
-        return render_template("buggy-form.html", msg = msg)
+        violations = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not aux_power_units.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Units of Auxiliary Power"
-        return render_template("buggy-form.html", msg = msg)
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not hamster_booster.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Hamster Booster"
-        return render_template("buggy-form.html", msg = msg)
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not qty_tyres.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Tyres"
-        return render_template("buggy-form.html", msg = msg)
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not qty_attacks.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Attacks"
-        return render_template("buggy-form.html", msg = msg)
+        return render_template("buggy-form.html", msg = msg, buggy = record)
     
     try:
       qty_wheels = request.form['qty_wheels']
