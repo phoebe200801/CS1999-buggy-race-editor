@@ -112,6 +112,37 @@ def create_buggy():
         power_cost = int(power_units) * 20 #1 unit = 30
         print("FIXME cost =", power_cost)
     
+    #aux power cost
+    if aux_power_type == "petrol":
+        aux_power_cost = int(aux_power_units) * 4
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "fusion":
+        aux_power_cost = int(aux_power_units) * 400 #1 unit = 100
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "steam":
+        aux_power_cost = int(aux_power_units) * 3
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "bio":
+        aux_power_cost = int(aux_power_units) * 5
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "electric":
+        aux_power_cost = int(aux_power_units) * 20
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "rocket":
+        aux_power_cost = int(aux_power_units) * 16
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "hamster":
+        aux_power_cost = int(aux_power_units) * 3
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "themo":
+        power_cost = int(aux_power_units) * 300 #1 unit = 100
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "solar":
+        aux_power_cost = int(aux_power_units) * 40 #1 unit = 30
+        print("FIXME cost =", aux_power_cost)
+    elif aux_power_type == "wind":
+        aux_power_cost = int(aux_power_units) * 20 #1 unit = 30
+        print("FIXME cost =", aux_power_cost)
     
     try:
       qty_wheels = request.form['qty_wheels']
