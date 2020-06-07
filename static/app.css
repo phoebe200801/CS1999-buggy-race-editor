@@ -58,11 +58,6 @@ a.button, input.button {
   color: grey;
 }
 
-a.button {
-    margin: 245px;
-    padding: 10px;
-}
-
 a.button:hover {
   background-color: grey;
   color: pink;
@@ -77,6 +72,10 @@ input {
 
 input.button {
   background-color: #99ff99;
+}
+
+input.button:hover{
+    background-color: lightgreen;
 }
 
 table {
