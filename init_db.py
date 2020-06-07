@@ -57,6 +57,8 @@ con.execute("""
 
 """)
 
+#complete cost
+
 print("- Table \"buggies\" exists OK")
 
 cur = con.cursor()
