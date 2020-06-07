@@ -43,11 +43,16 @@ def create_buggy():
     #total_cost =
     
     qty_wheels = request.form['qty_wheels']
+    
     power_type = request.form['power_type']
     power_units = request.form['power_units']
+    aux_power_type = request.form['aux_power_type']
     aux_power_units = request.form['aux_power_units']
     hamster_booster = request.form['hamster_booster']
+    
+    tyres = request.form['tyres']
     qty_tyres = request.form['qty_tyres']
+    
     qty_attacks = request.form['qty_attacks']
     
     if int(qty_wheels)%2 != 0:
@@ -143,6 +148,29 @@ def create_buggy():
     elif aux_power_type == "wind":
         aux_power_cost = int(aux_power_units) * 20 #1 unit = 30
         print("FIXME cost =", aux_power_cost)
+        
+    #hamster cost
+    hamster_cost = int(hamster_booster) * 5
+    print("FIXME hamster =", hamster_cost)
+    
+    #tyres cost
+    if tyres == "knobbly":
+        tyres_cost = int(qty_tyres) * 15
+        print("FIXME tyres =", tyres_cost)
+    elif tyres == "slick":
+        tyres_cost = int(qty_tyres) * 10
+        print("FIXME tyres =", tyres_cost)
+    elif tyres == "steelband":
+        tyres_cost = int(qty_tyres) * 20
+        print("FIXME tyres =", tyres_cost)
+    elif tyres == "reactive":
+        tyres_cost = int(qty_tyres) * 40
+        print("FIXME tyres =", tyres_cost)
+    elif tyres == "maglev":
+        tyres_cost = int(qty_tyres) * 50
+        print("FIXME tyres =", tyres_cost)
+    
+    
     
     try:
       qty_wheels = request.form['qty_wheels']
