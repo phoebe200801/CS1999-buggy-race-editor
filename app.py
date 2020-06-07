@@ -43,19 +43,30 @@ def create_buggy():
     #total_cost =
     
     qty_wheels = request.form['qty_wheels']
-    
+ 
+    flag_color = request.form['flag_color']
+    flag_color_secondary = request.form['flag_color_secondary']
+    flag_pattern = request.form['flag_pattern']
+ 
     power_type = request.form['power_type']
     power_units = request.form['power_units']
     aux_power_type = request.form['aux_power_type']
     aux_power_units = request.form['aux_power_units']
     hamster_booster = request.form['hamster_booster']
-    
+ 
     tyres = request.form['tyres']
     qty_tyres = request.form['qty_tyres']
-    
+ 
     armour = request.form['armour']
-    
+    fireproof = request.form['fireproof']
+    insulated = request.form['insulated']
+    antibiotic = request.form['antibiotic']
+ 
+    attack = request.form['attack']
     qty_attacks = request.form['qty_attacks']
+ 
+    banging = request.form['banging']
+    algo = request.form['algo']
     
     if int(qty_wheels)%2 != 0:
         msg = f"RULE VIOLATION! PLEASE ENTER AN EVEN INTEGER: Number of Wheels"
@@ -199,6 +210,19 @@ def create_buggy():
         armour_cost = int(armour_size) * 290
         print("FIXME armour = ", armour_cost)
     
+    #attack cost
+    if attack == "spike":
+        attack_cost = int(qty_attacks) * 5
+        print("FIXME attack = ", attack_cost)
+    elif attack == "flame":
+        attack_cost = int(qty_attacks) * 20
+        print("FIXME attack = ", attack_cost)
+    elif attack == "charge":
+        attack_cost = int(qty_attacks) * 28
+        print("FIXME attack = ", attack_cost)
+    elif attack == "biohazard":
+        attack_cost = int(qty_attacks) * 30
+        print("FIXME attack = ", attack_cost)
     
     
     try:
