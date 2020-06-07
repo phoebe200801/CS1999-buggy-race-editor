@@ -53,6 +53,8 @@ def create_buggy():
     tyres = request.form['tyres']
     qty_tyres = request.form['qty_tyres']
     
+    armour = request.form['armour']
+    
     qty_attacks = request.form['qty_attacks']
     
     if int(qty_wheels)%2 != 0:
@@ -169,6 +171,33 @@ def create_buggy():
     elif tyres == "maglev":
         tyres_cost = int(qty_tyres) * 50
         print("FIXME tyres =", tyres_cost)
+    
+    #armour
+    if armour == "wood":
+        armour_size = (int(qty_wheels)-4) * 10
+        print("FIXME size = ", armour_size)
+        armour_cost = int(armour_size) * 40
+        print("FIXME armour = ", armour_cost)
+    elif armour == "aluminimum":
+        armour_size = (int(qty_wheels)-4) * 10
+        print("FIXME size = ", armour_size)
+        armour_cost = int(armour_size) * 200
+        print("FIXME armour = ", armour_cost)
+    elif armour == "thinsteel":
+        armour_size = (int(qty_wheels)-4) * 10
+        print("FIXME size = ", armour_size)
+        armour_cost = int(armour_size) * 100
+        print("FIXME armour = ", armour_cost)
+    elif armour == "thicksteel":
+        armour_size = (int(qty_wheels)-4) * 10
+        print("FIXME size = ", armour_size)
+        armour_cost = int(armour_size) * 200
+        print("FIXME armour = ", armour_cost)
+    elif armour == "titanium":
+        armour_size = (int(qty_wheels)-4) * 10
+        print("FIXME size = ", armour_size)
+        armour_cost = int(armour_size) * 290
+        print("FIXME armour = ", armour_cost)
     
     
     
