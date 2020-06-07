@@ -40,8 +40,10 @@ def create_buggy():
     record = cur.fetchone();
     
     msg=""
+    #total_cost =
     
     qty_wheels = request.form['qty_wheels']
+    power_type = request.form['power_type']
     power_units = request.form['power_units']
     aux_power_units = request.form['aux_power_units']
     hamster_booster = request.form['hamster_booster']
@@ -62,9 +64,11 @@ def create_buggy():
     elif not power_units.isdigit():
         violations = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
         return render_template("buggy-form.html", msg = msg, buggy = record)
+        #units rules validation needed
     elif not aux_power_units.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Units of Auxiliary Power"
         return render_template("buggy-form.html", msg = msg, buggy = record)
+        #units rules validation needed
     elif not hamster_booster.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Hamster Booster"
         return render_template("buggy-form.html", msg = msg, buggy = record)
@@ -74,6 +78,40 @@ def create_buggy():
     elif not qty_attacks.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Attacks"
         return render_template("buggy-form.html", msg = msg, buggy = record)
+    
+    
+    #power costs
+    if power_type == "petrol":
+        power_cost = int(power_units) * 4
+        print("FIXME cost =", power_cost)
+    elif power_type == "fusion":
+        power_cost = int(power_units) * 400 #needs validation only one unit allowed (1 unit = 100)
+        print("FIXME cost =", power_cost)
+    elif power_type == "steam":
+        power_cost = int(power_units) * 3
+        print("FIXME cost =", power_cost)
+    elif power_type == "bio":
+        power_cost = int(power_units) * 5
+        print("FIXME cost =", power_cost)
+    elif power_type == "electric":
+        power_cost = int(power_units) * 20
+        print("FIXME cost =", power_cost)
+    elif power_type == "rocket":
+        power_cost = int(power_units) * 16
+        print("FIXME cost =", power_cost)
+    elif power_type == "hamster":
+        power_cost = int(power_units) * 3
+        print("FIXME cost =", power_cost)
+    elif power_type == "themo":
+        power_cost = int(power_units) * 300 #1 unit = 100
+        print("FIXME cost =", power_cost)
+    elif power_type == "solar":
+        power_cost = int(power_units) * 40 #1 unit = 30
+        print("FIXME cost =", power_cost)
+    elif power_type == "wind":
+        power_cost = int(power_units) * 20 #1 unit = 30
+        print("FIXME cost =", power_cost)
+    
     
     try:
       qty_wheels = request.form['qty_wheels']
