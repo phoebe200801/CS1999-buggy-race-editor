@@ -40,7 +40,7 @@ def create_buggy():
     record = cur.fetchone();
     
     msg=""
-    #total_cost =
+    total_cost = int(power_cost) + int(aux_power_cost) + int(hamster_cost) + int(tyres_cost) + int(armour_cost) + int(attack_cost) + int(fireproof_cost) + int(insulated_cost) + int(antibiotic_cost) + int(banging_cost)
     
     qty_wheels = request.form['qty_wheels']
  
@@ -209,6 +209,8 @@ def create_buggy():
         print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 290
         print("FIXME armour = ", armour_cost)
+    else:
+        armour_cost = 0
     
     #attack cost
     if attack == "spike":
@@ -223,7 +225,32 @@ def create_buggy():
     elif attack == "biohazard":
         attack_cost = int(qty_attacks) * 30
         print("FIXME attack = ", attack_cost)
+    else:
+        attack_cost = 0
+        
+    #fireproof cost
+    if fireproof == "Yes":
+        fireproof_cost = 70
+    else:
+        fireproof_cost = 0
     
+    #insulated cost
+    if insulated == "Yes":
+        insulated_cost = 100
+    else:
+        insulated_cost = 0
+    
+    #antibiotic cost
+    if antibiotic == "Yes":
+        antibiotic_cost = 90
+    else:
+        antibiotic_cost = 0
+    
+    #banging cost
+    if banging == "Yes":
+        banging_cost = 42
+    else:
+        banging_cost = 0
     
     try:
       qty_wheels = request.form['qty_wheels']
