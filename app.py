@@ -28,16 +28,17 @@ def create_buggy():
     con.row_factory = sql.Row
     cur = con.cursor()
     cur.execute("SELECT * FROM buggies")
-    record = cur.fetchone();
+    records = cur.fetchall();
+    
   
-    return render_template("buggy-form.html", buggy = record)
+    return render_template("buggy-form.html", buggies = records)
   elif request.method == 'POST':
   
     con = sql.connect(DATABASE_FILE)
     con.row_factory = sql.Row
     cur = con.cursor()
     cur.execute("SELECT * FROM buggies")
-    record = cur.fetchone();
+    records = cur.fetchall();
     
     msg=""
     
@@ -67,76 +68,84 @@ def create_buggy():
     banging = request.form['banging']
     algo = request.form['algo']
     
+    
     """RULES"""
     
     #qty_wheels must be even
     if int(qty_wheels)%2 != 0:
         msg = f"RULE VIOLATION! PLEASE ENTER AN EVEN INTEGER: Number of Wheels"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         
     #qty_tyres must be greater than qty_wheels
     if int(qty_tyres) < int(qty_wheels):
         msg = f"RULE VIOLATION! PLEASE ENTER AN INTEGER GREATER THAN", qty_wheels, ": Number of Tyres"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         
     
     #ensuring that an input is a number and not a word
     if not qty_wheels.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Wheels"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
     elif not power_units.isdigit():
         violations = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         #units rules validation needed
     elif not aux_power_units.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Units of Auxiliary Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         #units rules validation needed
     elif not hamster_booster.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Hamster Booster"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
     elif not qty_tyres.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Tyres"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
     elif not qty_attacks.isdigit():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Attacks"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         
     #non-consumable power must hace one unit per motive force (power_type)
     if power_type == "fusion" and int(power_units) > 1:
-            msg = f"INVALID! 1 UNIT PERMITTED: Units of Power"
-            return render_template("buggy-form.html", msg = msg, buggy = record)
-            print("FIXME error message given", power_units)
+        msg = f"INVALID! 1 UNIT PERMITTED: Units of Power"
+        return render_template("buggy-form.html", msg = msg, buggies = records)
+        print("FIXME error message given", power_units)
     elif power_type == "thermo" and int(power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", power_units)
     elif power_type == "solar" and int(power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", power_units)
     elif power_type == "wind" and int(power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", power_units)
         
     #non-consumable power must hace one unit per motive force (aux_power_type)
     if aux_power_type == "fusion" and int(aux_power_units) > 1:
-            msg = f"INVALID! 1 UNIT PERMITTED: Units of Auxiliary Power"
-            return render_template("buggy-form.html", msg = msg, buggy = record)
-            print("FIXME error message given", aux_power_units)
+        msg = f"INVALID! 1 UNIT PERMITTED: Units of Auxiliary Power"
+        return render_template("buggy-form.html", msg = msg, buggie = records)
+        print("FIXME error message given", aux_power_units)
     elif aux_power_type == "thermo" and int(aux_power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Auxiliary Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", aux_power_units)
     elif aux_power_type == "solar" and int(aux_power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Auxiliary Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", aux_power_units)
     elif aux_power_type == "wind" and int(aux_power_units) > 1:
         msg = f"INVALID! 1 UNIT PERMITTED: Units of Auxiliary Power"
-        return render_template("buggy-form.html", msg = msg, buggy = record)
+        return render_template("buggy-form.html", msg = msg, buggies = records)
         print("FIXME error message given", aux_power_units)
+    
+    #colour validation
+    
+    
+    #flag validation - must have two different colours for a patterned flag (not for plain)
+        
+    
     
     """COST"""
     
@@ -339,7 +348,9 @@ def create_buggy():
       with sql.connect(DATABASE_FILE) as con:
         cur = con.cursor()
         
-        cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=?, total_cost=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost, DEFAULT_BUGGY_ID))
+        #cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=?, total_cost=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost, DEFAULT_BUGGY_ID))
+        
+        cur.execute("INSERT INTO buggies (qty_wheels) VALUES (?)", (qty_wheels))
         
         con.commit()
         msg = "Record successfully saved"
@@ -359,8 +370,8 @@ def show_buggies():
   con.row_factory = sql.Row
   cur = con.cursor()
   cur.execute("SELECT * FROM buggies")
-  record = cur.fetchone(); 
-  return render_template("buggy.html", buggy = record)
+  records = cur.fetchall();
+  return render_template("buggy.html", buggies = records)
 
 #------------------------------------------------------------
 # a page for displaying the buggy
