@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h1>Your Buggy</h1>
+  <h1>Your Buggies</h1>
 
 {% for buggy in buggies %}
 
@@ -89,6 +89,11 @@
    
    <tr>
        <td>Total Cost:</td><td> {{buggy['total_cost']}} </td>
+    </tr>
+   
+   <tr>
+       <td colspan="2"> <a href="/edit/{{ buggy['id'] }}"> Edit This Buggy</a> </td>
+    </tr>
    
   </table>
 
