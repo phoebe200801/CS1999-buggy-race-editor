@@ -4,13 +4,20 @@
 
 {% block content %}
 
-  <h1>Make Your Buggy</h1>
+<h1>Edit Your Buggy #{{ buggy['id'] }}</h1>
 
 <p>
 {{ msg }}
 </p>
 
+<p>
+    <a href="/new" onClick="autofill();"> Click to Autofill </a>
+</p>
+
   <form action="/new" method="post">
+
+    <input type="hidden" name="id" value="{{ buggy['id'] }}"/>
+      
     <p>
     <label for="qty_wheels">Number of Wheels:</label>
     <input type="text" name="qty_wheels" value="{{ buggy['qty_wheels'] }}"/>
@@ -202,47 +209,47 @@
     <a href="/" class="button">Home</a>
    </p>
 
-
-<script>
+<script type="text/javacsript">
     function autoFill() {
-        buggy-form.getElementById('qty_wheels').value = 4;
+        document.getElementById("{{ buggy['qty_wheels'] }}").value = 4;
+        return("FIXME autofill")
+            
+        document.getElementById("{{ buggy ['flag_color'] }}").value = "red";
+            
+        document.getElementById("flag_color_secondary").value = "blue";
         
-        buggy-form.getElementById('flag_color').value = "red";
-        
-        buggy-form.getElementById('flag_color_secondary').value = "blue";
-        
-        buggy-form.getElementById('flag_pattern').value - "vstripe";
-        
-        buggy-form.getElementById('power_type').value = "petrol";
-        
-        buggy-form.getElementById('power_units').value = 5;
-        
-        buggy-form.getElementById('aux_power_type').value = "petrol";
-        
-        buggy-form.getElementById('aux_power_units').value = 5;
-        
-        buggy-form.getElementById('hamster_booster').value = 1;
-        
-        buggy-form.getElementById('tyres').value = "knobbly";
-        
-        buggy-form.getElementById('qty_tyres').value = 5;
-        
-        buggy-form.getElementById('armour').value = "none";
-        
-        buggy-form.getElementById('fireproof').value = "No";
-        
-        buggy-form.getElementById('insulated').value = "No";
-        
-        buggy-form.getElementById('antibiotic').value = "No";
-        
-        buggy-form.getElementById('attack').value = "none";
-        
-        buggy-form.getElementById('qty_attacks').value = 0;
-        
-        buggy-form.getElementById('banging').value = "No";
-        
-        buggy-form.getElementById('algo').value = "buggy";
-    }
+        document.getElementById("flag_pattern").value - "vstripe";
+            
+        document.getElementById("power_type").value = "petrol";
+            
+        document.getElementById("power_units").value = 5;
+            
+        document.getElementById("aux_power_type").value = "petrol";
+            
+        document.getElementById("aux_power_units").value = 5;
+            
+        document.getElementById("hamster_booster").value = 1;
+            
+        document.getElementById("tyres").value = "knobbly";
+            
+        document.getElementById("qty_tyres").value = 5;
+            
+        document.getElementById("armour").value = "none";
+            
+        document.getElementById("fireproof").value = "No";
+            
+        document.getElementById("insulated").value = "No";
+            
+        document.getElementById("antibiotic").value = "No";
+            
+        document.getElementById("attack").value = "none";
+            
+        document.getElementById("qty_attacks").value = 0;
+            
+        document.getElementById("banging").value = "No";
+            
+        document.getElementById("algo").value = "buggy";
+        }
 
 </script>
 
