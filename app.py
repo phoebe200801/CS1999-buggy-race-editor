@@ -86,7 +86,7 @@ def create_buggy():
         msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Wheels"
         return render_template("buggy-form.html", msg = msg, buggy = record)
     elif not power_units.isdigit():
-        violations = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
+        msg = f"INVALID! PLEASE ENTER AN INTEGER: Units of Power"
         return render_template("buggy-form.html", msg = msg, buggy = record)
         #units rules validation needed
     elif not aux_power_units.isdigit():
@@ -308,50 +308,53 @@ def create_buggy():
     total_cost = int(power_cost) + int(aux_power_cost) + int(hamster_cost) + int(tyres_cost) + int(armour_cost) + int(attack_cost) + int(fireproof_cost) + int(insulated_cost) + int(antibiotic_cost) + int(banging_cost)
     print("FIXME total = ", total_cost)
     
+    #try:
+    qty_wheels = request.form['qty_wheels']
+      
+    flag_color = request.form['flag_color']
+    flag_color_secondary = request.form['flag_color_secondary']
+    flag_pattern = request.form['flag_pattern']
+      
+    power_type = request.form['power_type']
+    power_units = request.form['power_units']
+    aux_power_type = request.form['aux_power_type']
+    aux_power_units = request.form['aux_power_units']
+    hamster_booster = request.form['hamster_booster']
+      
+    tyres = request.form['tyres']
+    qty_tyres = request.form['qty_tyres']
+      
+    armour = request.form['armour']
+    fireproof = request.form['fireproof']
+    insulated = request.form['insulated']
+    antibiotic = request.form['antibiotic']
+      
+    attack = request.form['attack']
+    qty_attacks = request.form['qty_attacks']
+      
+    banging = request.form['banging']
+    algo = request.form['algo']
+      
+    buggy_id = request.form['id']
+      
+    msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
+      
+      
     try:
-      qty_wheels = request.form['qty_wheels']
-      
-      flag_color = request.form['flag_color']
-      flag_color_secondary = request.form['flag_color_secondary']
-      flag_pattern = request.form['flag_pattern']
-      
-      power_type = request.form['power_type']
-      power_units = request.form['power_units']
-      aux_power_type = request.form['aux_power_type']
-      aux_power_units = request.form['aux_power_units']
-      hamster_booster = request.form['hamster_booster']
-      
-      tyres = request.form['tyres']
-      qty_tyres = request.form['qty_tyres']
-      
-      armour = request.form['armour']
-      fireproof = request.form['fireproof']
-      insulated = request.form['insulated']
-      antibiotic = request.form['antibiotic']
-      
-      attack = request.form['attack']
-      qty_attacks = request.form['qty_attacks']
-      
-      banging = request.form['banging']
-      algo = request.form['algo']
-      
-      buggy_id = request.form['id']
-      
-      msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
-      
       with sql.connect(DATABASE_FILE) as con:
         cur = con.cursor()
 
         if buggy_id.isdigit():
-            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, buggy_id))
+            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo))
         else:
-            cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, buggy_id) VALUES (?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, buggy_id))
+            cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo))
+            print("FIXME this is running!!!")
         
         con.commit()
         msg = "Record successfully saved"
     except:
-      con.rollback()
-      msg = "error in update operation"
+        con.rollback()
+        msg = "error in update operation"
     finally:
       con.close()
       return render_template("updated.html", msg = msg)
@@ -389,7 +392,7 @@ def edit_buggy(buggy_id):
 #   database
 #------------------------------------------------------------
 @app.route('/json')
-def summary():
+def summary(buggy_id):
   con = sql.connect(DATABASE_FILE)
   con.row_factory = sql.Row
   cur = con.cursor()
@@ -407,21 +410,22 @@ def summary():
 #   there always being a record to update (because the
 #   student needs to change that!)
 #------------------------------------------------------------
-@app.route('/delete', methods = ['POST'])
-def delete_buggy():
-  try:
-    msg = "deleting buggy"
-    with sql.connect(DATABASE_FILE) as con:
-      cur = con.cursor()
-      cur.execute("DELETE FROM buggies")
-      con.commit()
-      msg = "Buggy deleted"
-  except:
-    con.rollback()
-    msg = "error in delete operation"
-  finally:
-    con.close()
-    return render_template("updated.html", msg = msg)
+@app.route('/delete/<buggy_id>', methods = ['POST, DELETE'])
+def delete_buggy(buggy_id):
+    if request.method == "DELETE":
+      try:
+        msg = "deleting buggy"
+        with sql.connect(DATABASE_FILE) as con:
+          cur = con.cursor()
+          cur.execute("DELETE FROM buggies WHERE buggy_id=?")
+          con.commit()
+          msg = "Buggy deleted"
+      except:
+        con.rollback()
+        msg = "error in delete operation"
+      finally:
+        con.close()
+        return render_template("updated.html", msg = msg)
 
 
 if __name__ == '__main__':
