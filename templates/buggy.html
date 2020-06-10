@@ -95,11 +95,15 @@
        <td colspan="2"> <a href="/edit/{{ buggy['id'] }}"> Edit This Buggy</a> </td>
     </tr>
    
+   <tr>
+       <td colspan="2">
+           <form method="POST" action="/delete/{{ buggy['id'] }}">
+               <button type="submit">Delete Buggy</button>
+            </form>
+        </td>
+    </tr>
+   
   </table>
-
-<form method="POST" action="/delete/<buggy_id>">
-    <button type="submit">Delete Buggy</button>
-</form>
 
 {% endfor %}
 
