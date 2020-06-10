@@ -256,44 +256,43 @@ def create_buggy():
         banging_cost = 0
         
     total_cost = int(power_cost) + int(aux_power_cost) + int(hamster_cost) + int(tyres_cost) + int(armour_cost) + int(attack_cost) + int(fireproof_cost) + int(insulated_cost) + int(antibiotic_cost) + int(banging_cost)
-
-    qty_wheels = request.form['qty_wheels']
-      
-    flag_color = request.form['flag_color']
-    flag_color_secondary = request.form['flag_color_secondary']
-    flag_pattern = request.form['flag_pattern']
-      
-    power_type = request.form['power_type']
-    power_units = request.form['power_units']
-    aux_power_type = request.form['aux_power_type']
-    aux_power_units = request.form['aux_power_units']
-    hamster_booster = request.form['hamster_booster']
-      
-    tyres = request.form['tyres']
-    qty_tyres = request.form['qty_tyres']
-      
-    armour = request.form['armour']
-    fireproof = request.form['fireproof']
-    insulated = request.form['insulated']
-    antibiotic = request.form['antibiotic']
-      
-    attack = request.form['attack']
-    qty_attacks = request.form['qty_attacks']
-      
-    banging = request.form['banging']
-    algo = request.form['algo']
-      
-    buggy_id = request.form['id']
-      
-    msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
-      
-      
     try:
-      with sql.connect(DATABASE_FILE) as con:
-        cur = con.cursor()
+        qty_wheels = request.form['qty_wheels']
+          
+        flag_color = request.form['flag_color']
+        flag_color_secondary = request.form['flag_color_secondary']
+        flag_pattern = request.form['flag_pattern']
+          
+        power_type = request.form['power_type']
+        power_units = request.form['power_units']
+        aux_power_type = request.form['aux_power_type']
+        aux_power_units = request.form['aux_power_units']
+        hamster_booster = request.form['hamster_booster']
+          
+        tyres = request.form['tyres']
+        qty_tyres = request.form['qty_tyres']
+          
+        armour = request.form['armour']
+        fireproof = request.form['fireproof']
+        insulated = request.form['insulated']
+        antibiotic = request.form['antibiotic']
+          
+        attack = request.form['attack']
+        qty_attacks = request.form['qty_attacks']
+          
+        banging = request.form['banging']
+        algo = request.form['algo']
+          
+        buggy_id = request.form['id']
+          
+        msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
+          
+        with sql.connect(DATABASE_FILE) as con:
+            cur = con.cursor()
 
         if buggy_id.isdigit():
-            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=?, total_cost=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, id, total_cost))
+            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=?, total_cost=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost, buggy_id))
+            print("FIXME i am working")
         else:
             cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost))
             print("FIXME this is running!!!")
@@ -358,20 +357,24 @@ def summary(buggy_id):
 #   there always being a record to update (because the
 #   student needs to change that!)
 #------------------------------------------------------------
-@app.route('/delete/<buggy_id>', methods = ['POST, DELETE'])
+@app.route('/delete/<buggy_id>', methods = ['POST'])
 def delete_buggy(buggy_id):
-    if request.method == "DELETE":
-      try:
+    #if request.method == "POST":
+    try:
         msg = "deleting buggy"
         with sql.connect(DATABASE_FILE) as con:
-          cur = con.cursor()
-          cur.execute("DELETE FROM buggies WHERE buggy_id=?")
-          con.commit()
-          msg = "Buggy deleted"
-      except:
+            cur = con.cursor()
+            if buggy_id.isdigit():
+                cur.execute("DELETE FROM buggies WHERE id=?", (buggy_id,))
+                print("FIXME i am working *big happy*")
+            else:
+                print("FIXME i am not working *big sad*")
+        con.commit()
+        msg = "Buggy deleted"
+    except:
         con.rollback()
         msg = "error in delete operation"
-      finally:
+    finally:
         con.close()
         return render_template("updated.html", msg = msg)
 
