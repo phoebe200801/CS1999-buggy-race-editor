@@ -140,175 +140,123 @@ def create_buggy():
         print("FIXME error message given", aux_power_units)
 
     """COST"""
-    
+
     #power costs
     if power_type == "petrol":
         power_cost = int(power_units) * 4
-        print("FIXME cost =", power_cost)
     elif power_type == "fusion":
-        power_cost = int(power_units) * 400 #needs validation only one unit allowed (1 unit = 100)
-        print("FIXME cost =", power_cost)
+        power_cost = int(power_units) * 400
     elif power_type == "steam":
         power_cost = int(power_units) * 3
-        print("FIXME cost =", power_cost)
     elif power_type == "bio":
         power_cost = int(power_units) * 5
-        print("FIXME cost =", power_cost)
     elif power_type == "electric":
         power_cost = int(power_units) * 20
-        print("FIXME cost =", power_cost)
     elif power_type == "rocket":
         power_cost = int(power_units) * 16
-        print("FIXME cost =", power_cost)
     elif power_type == "hamster":
         power_cost = int(power_units) * 3
-        print("FIXME cost =", power_cost)
     elif power_type == "thermo":
-        power_cost = int(power_units) * 300 #1 unit = 100
-        print("FIXME cost =", power_cost)
+        power_cost = int(power_units) * 300
     elif power_type == "solar":
-        power_cost = int(power_units) * 40 #1 unit = 30
-        print("FIXME cost =", power_cost)
+        power_cost = int(power_units) * 40
     elif power_type == "wind":
-        power_cost = int(power_units) * 20 #1 unit = 30
-        print("FIXME cost =", power_cost)
-    
+        power_cost = int(power_units) * 20
+        
     #aux power cost
     if aux_power_type == "petrol":
         aux_power_cost = int(aux_power_units) * 4
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "fusion":
-        aux_power_cost = int(aux_power_units) * 400 #1 unit = 100
-        print("FIXME cost =", aux_power_cost)
+        aux_power_cost = int(aux_power_units) * 400
     elif aux_power_type == "steam":
         aux_power_cost = int(aux_power_units) * 3
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "bio":
         aux_power_cost = int(aux_power_units) * 5
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "electric":
         aux_power_cost = int(aux_power_units) * 20
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "rocket":
         aux_power_cost = int(aux_power_units) * 16
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "hamster":
         aux_power_cost = int(aux_power_units) * 3
-        print("FIXME cost =", aux_power_cost)
     elif aux_power_type == "themo":
-        power_cost = int(aux_power_units) * 300 #1 unit = 100
-        print("FIXME cost =", aux_power_cost)
+        power_cost = int(aux_power_units) * 300
     elif aux_power_type == "solar":
-        aux_power_cost = int(aux_power_units) * 40 #1 unit = 30
-        print("FIXME cost =", aux_power_cost)
+        aux_power_cost = int(aux_power_units) * 40
     elif aux_power_type == "wind":
-        aux_power_cost = int(aux_power_units) * 20 #1 unit = 30
-        print("FIXME cost =", aux_power_cost)
+        aux_power_cost = int(aux_power_units) * 20
         
     #hamster cost
     hamster_cost = int(hamster_booster) * 5
-    print("FIXME hamster =", hamster_cost)
     
     #tyres cost
     if tyres == "knobbly":
         tyres_cost = int(qty_tyres) * 15
-        print("FIXME tyres =", tyres_cost)
     elif tyres == "slick":
         tyres_cost = int(qty_tyres) * 10
-        print("FIXME tyres =", tyres_cost)
     elif tyres == "steelband":
         tyres_cost = int(qty_tyres) * 20
-        print("FIXME tyres =", tyres_cost)
     elif tyres == "reactive":
         tyres_cost = int(qty_tyres) * 40
-        print("FIXME tyres =", tyres_cost)
     elif tyres == "maglev":
         tyres_cost = int(qty_tyres) * 50
-        print("FIXME tyres =", tyres_cost)
     
     #armour
     if armour == "wood":
         armour_size = (int(qty_wheels)-4) * 10
-        print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 40
-        print("FIXME armour = ", armour_cost)
     elif armour == "aluminimum":
         armour_size = (int(qty_wheels)-4) * 10
-        print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 200
-        print("FIXME armour = ", armour_cost)
     elif armour == "thinsteel":
         armour_size = (int(qty_wheels)-4) * 10
-        print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 100
-        print("FIXME armour = ", armour_cost)
     elif armour == "thicksteel":
         armour_size = (int(qty_wheels)-4) * 10
-        print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 200
-        print("FIXME armour = ", armour_cost)
     elif armour == "titanium":
         armour_size = (int(qty_wheels)-4) * 10
-        print("FIXME size = ", armour_size)
         armour_cost = int(armour_size) * 290
-        print("FIXME armour = ", armour_cost)
     else:
         armour_cost = 0
-        print("FIXME armour = ", armour_cost)
     
     #attack cost
     if attack == "spike":
         attack_cost = int(qty_attacks) * 5
-        print("FIXME attack = ", attack_cost)
     elif attack == "flame":
         attack_cost = int(qty_attacks) * 20
-        print("FIXME attack = ", attack_cost)
     elif attack == "charge":
         attack_cost = int(qty_attacks) * 28
-        print("FIXME attack = ", attack_cost)
     elif attack == "biohazard":
         attack_cost = int(qty_attacks) * 30
-        print("FIXME attack = ", attack_cost)
     else:
         attack_cost = 0
-        print("FIXME attack = ", attack_cost)
         
     #fireproof cost
     if fireproof == "Yes":
         fireproof_cost = 70
-        print("FIXME fireproof =", fireproof_cost)
     else:
         fireproof_cost = 0
-        print("FIXME fireproof =", fireproof_cost)
     
     #insulated cost
     if insulated == "Yes":
         insulated_cost = 100
-        print("FIXME insulated =", insulated_cost)
     else:
         insulated_cost = 0
-        print("FIXME insulated =", insulated_cost)
     
     #antibiotic cost
     if antibiotic == "Yes":
         antibiotic_cost = 90
-        print("FIXME antibiotic =", antibiotic_cost)
     else:
         antibiotic_cost = 0
-        print("FIXME antibiotic =", antibiotic_cost)
     
     #banging cost
     if banging == "Yes":
         banging_cost = 42
-        print("FIXME banging =", banging_cost)
     else:
         banging_cost = 0
-        print("FIXME banging =", banging_cost)
         
     total_cost = int(power_cost) + int(aux_power_cost) + int(hamster_cost) + int(tyres_cost) + int(armour_cost) + int(attack_cost) + int(fireproof_cost) + int(insulated_cost) + int(antibiotic_cost) + int(banging_cost)
-    print("FIXME total = ", total_cost)
-    
-    #try:
+
     qty_wheels = request.form['qty_wheels']
       
     flag_color = request.form['flag_color']
@@ -345,9 +293,9 @@ def create_buggy():
         cur = con.cursor()
 
         if buggy_id.isdigit():
-            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo))
+            cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, fireproof=?, insulated=?, antibiotic=?, attack=?, qty_attacks=?, banging=?, algo=?, total_cost=? WHERE id=?", (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, id, total_cost))
         else:
-            cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo))
+            cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost))
             print("FIXME this is running!!!")
         
         con.commit()
