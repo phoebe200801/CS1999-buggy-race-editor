@@ -377,6 +377,13 @@ def delete_buggy(buggy_id):
     finally:
         con.close()
         return render_template("updated.html", msg = msg)
+        
+#------------------------------------------------------------
+# poster for buggy here
+#------------------------------------------------------------
+@app.route('/poster')
+def poster():
+    return render_template('poster.html')
 
 
 if __name__ == '__main__':
