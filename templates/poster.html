@@ -2,15 +2,13 @@
 {% block content %}
 
 <style>
-    .cs1999-tasks {
-        border-top: 1px solid black;
-        margin-top: 4em;
+    .cs1999-tasks .task h1{
+        border-bottom: 1px solid hotpink;
     }
-    
     .cs1999-tasks .task {
         margin: 1em;
         padding: 1em;
-        border: 1px solid black;
+        border: 1px solid hotpink;
     }
     
     .cs1999-tasks .task h2 {
@@ -20,8 +18,10 @@
 
 <section class="cs1999-tasks">
     
+    <h1>Buggy Race Editor: The Making Of</h1>
+    
     <div class="task">
-        <h2>0-GET</h2>
+        <h2>0-GET: Getting the Source Code</h2>
         
         <p>
             I forked the repo on GitHub and then used <code>git close</code> to make a local copy
@@ -31,6 +31,39 @@
         Once the repo was on my own machine, I was able to commit changes to version control as I went along, and I pushed back up to my GitHub repo at the end of each day. I followed GitHub's instructions and set up a SSH key so I didn't need to enter my username and password every time I pushed.
         </p>
     </div>
+    
+    <div class="task">
+        <h2>0-RUN: Get the App Running and View it in a Browser</h2>
+        
+        <p>
+            I used flask
+        </p>
+    </div>
+    
+    <div class="task">
+        <h2>0-CHANGE: Make a Change to a Templated and See it Appear</h2>
+        
+        <p>
+            I edited the style
+        </p>
+    </div>
+    
+    <div class="task">
+        <h2>1-ADD: Add More Data to the Form</h2>
+        
+        <p>
+        I added data to the form in buggy-form.html
+        </p>
+    </div>
+    
+    <div class="task">
+        <h2></h2>
+        
+        <p>
+            I used flask
+        </p>
+    </div>
+    
 </section>
 
 {% endblock %}
