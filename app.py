@@ -379,6 +379,13 @@ def delete_buggy(buggy_id):
         return render_template("updated.html", msg = msg)
         
 #------------------------------------------------------------
+# rules for buggy form here
+#------------------------------------------------------------
+@app.route('/rules')
+def rules():
+    return render_template('rules.html')
+        
+#------------------------------------------------------------
 # poster for buggy here
 #------------------------------------------------------------
 @app.route('/poster')
