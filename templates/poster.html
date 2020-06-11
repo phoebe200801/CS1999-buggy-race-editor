@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .cs1999-tasks {
+        border-top: 1px solid black;
+        margin-top: 4em;
+    }
+    
+    .cs1999-tasks .task {
+        margin: 1em;
+        padding: 1em;
+        border: 1px solid black;
+    }
+    
+    .cs1999-tasks .task h2 {
+        border-bottom: 3px solid grey;
+    }
+</style>
+
+<section class="cs1999-tasks">
+    
+    <div class="task">
+        <h2>0-GET</h2>
+        
+        <p>
+            I forked the repo on GitHub and then used <code>git close</code> to make a local copy
+        </p>
+        
+        <p>
+        Once the repo was on my own machine, I was able to commit changes to version control as I went along, and I pushed back up to my GitHub repo at the end of each day. I followed GitHub's instructions and set up a SSH key so I didn't need to enter my username and password every time I pushed.
+        </p>
+    </div>
+</section>
+
+{% endblock %}
