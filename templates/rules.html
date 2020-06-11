@@ -4,14 +4,19 @@
 <section class="cs1999-rules">
     <h1>Rules For Buggy Racing</h1>
     
-    <h2>
-    RULE 1:
-    </h2>
+    <div class="rule">
+        <h2>
+        RULE 1:
+        </h2>
     
-    <p>
-    Number of Wheels must be 4 or more AND even!
-    </p>
+        <p>
+        Number of Wheels must be 4 or more AND even!
+        </p>
     
+    </div>
+    
+    
+    <div class="rule">
     <h2>
         RULE 2:
     </h2>
@@ -25,7 +30,9 @@
         <li>solar</li>
         <li>wind</li>
     </ol>
+    </div>
     
+    <div class="rule">
     <h2>
         RULE 3:
     </h2>
@@ -33,7 +40,9 @@
     <p>
     Flag colours must be either HEX colours or strings
     </p>
+    </div>
     
+    <div class="rule">
     <h2>
         RULE 4:
     </h2>
@@ -41,7 +50,9 @@
     <p>
     Every Flag Pattern EXCEPT <code> plain </code> must include TWO different colours
     </p>
+    </div>
     
+    <div class="rule">
     <h2>
         RULE 5:
     </h2>
@@ -49,6 +60,7 @@
     <p>
     The Number of Tyres must be greater than the Number of Wheels
     </p>
+    </div>
     
 </section>
 
@@ -57,5 +69,18 @@
         <img src="/static/pink-car.png" width="120" height="80" alt="Natural"/>
     </marquee>
 </div>
+
+<p>
+<a href="/" class="button">home</a>
+</p>
+
+<style>
+
+    .cs1999-rules .rule {
+        margin: 1em;
+        padding: 1em;
+        border: 2px solid hotpink;
+    }
+</style>
 
 {% endblock %}
