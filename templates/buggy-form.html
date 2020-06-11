@@ -9,7 +9,7 @@
         Edit Your Buggy #{{ buggy['id'] }}
     {% else %}
         Make Your Buggy
-        {% endif %}
+    {% endif %}
 </h1>
 
 <p>
@@ -17,7 +17,11 @@
 </p>
 
 <p>
-    <a href="/new" onClick="autofill();"> Click to Autofill </a>
+<a href"/rules" class="button">See Rules Here</a>
+</p>
+
+<p>
+    <a href="/new" class="button" onClick="autofill();"> Click to Autofill </a>
 </p>
 
   <form action="/new" method="post">
@@ -222,40 +226,40 @@
             
         document.getElementById("{{ buggy ['flag_color'] }}").value = "red";
             
-        document.getElementById("flag_color_secondary").value = "blue";
+        document.getElementById("{{buggy['flag_color_secondary']}}").value = "blue";
         
-        document.getElementById("flag_pattern").value - "vstripe";
+        document.getElementById("{{buggy['flag_pattern']}}").value = "vstripe";
             
-        document.getElementById("power_type").value = "petrol";
+        document.getElementById("{{buggy['power_type']}}").value = "petrol";
             
-        document.getElementById("power_units").value = 5;
+        document.getElementById("{{buggy['power_units']}}").value = 5;
             
-        document.getElementById("aux_power_type").value = "petrol";
+        document.getElementById("{{buggy['aux_power_type']}}").value = "petrol";
             
-        document.getElementById("aux_power_units").value = 5;
+        document.getElementById("{{buggy['aux_power_units']}}").value = 5;
             
-        document.getElementById("hamster_booster").value = 1;
+        document.getElementById("{{buggy['hamster_booster']}}").value = 1;
             
-        document.getElementById("tyres").value = "knobbly";
+        document.getElementById("{{buggy['tyres']}}").value = "knobbly";
             
-        document.getElementById("qty_tyres").value = 5;
+        document.getElementById("{{buggy['qty_tyres']}}").value = 5;
             
-        document.getElementById("armour").value = "none";
+        document.getElementById("{{buggy['armour']}}").value = "none";
             
-        document.getElementById("fireproof").value = "No";
+        document.getElementById("{{buggy['fireproof']}}").value = "No";
             
-        document.getElementById("insulated").value = "No";
+        document.getElementById("{{buggy['insulated']}}").value = "No";
             
-        document.getElementById("antibiotic").value = "No";
+        document.getElementById("{{buggy['antibiotic']}}").value = "No";
             
-        document.getElementById("attack").value = "none";
+        document.getElementById("{{buggy['attack']}}").value = "none";
             
-        document.getElementById("qty_attacks").value = 0;
+        document.getElementById("{{buggy['qty_attacks']}}").value = 0;
             
-        document.getElementById("banging").value = "No";
+        document.getElementById("{{buggy['banging']}}").value = "No";
             
-        document.getElementById("algo").value = "buggy";
-        }
+        document.getElementById("{{buggy['algo']}}").value = "buggy";
+    }
 
 </script>
 
