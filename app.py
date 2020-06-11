@@ -306,6 +306,71 @@ def create_buggy():
       con.close()
       return render_template("updated.html", msg = msg)
 
+          
+#------------------------------------------------------------
+# rules for buggy form here
+#------------------------------------------------------------
+@app.route('/autofill', methods=['POST'])
+def autofill():
+    if request.method == 'POST':
+    
+        return render_template('autofill-form.html')
+        
+        con = sql.connect(DATABASE_FILE)
+        con.row_factory = sql.Row
+        cur = con.cursor()
+        cur.execute("SELECT * FROM buggies")
+        record = cur.fetchone();
+           
+        msg=""
+           
+        qty_wheels = request.form['qty_wheels']
+        
+        flag_color = request.form['flag_color']
+        flag_color_secondary = request.form['flag_color_secondary']
+        flag_pattern = request.form['flag_pattern']
+        
+        power_type = request.form['power_type']
+        power_units = request.form['power_units']
+        aux_power_type = request.form['aux_power_type']
+        aux_power_units = request.form['aux_power_units']
+        hamster_booster = request.form['hamster_booster']
+        
+        tyres = request.form['tyres']
+        qty_tyres = request.form['qty_tyres']
+        
+        armour = request.form['armour']
+        fireproof = request.form['fireproof']
+        insulated = request.form['insulated']
+        antibiotic = request.form['antibiotic']
+        
+        attack = request.form['attack']
+        qty_attacks = request.form['qty_attacks']
+        
+        banging = request.form['banging']
+        algo = request.form['algo']
+        
+        msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
+           
+        with sql.connect(DATABASE_FILE) as con:
+            cur = con.cursor()
+        
+        cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (qty_wheels,  flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, fireproof, insulated, antibiotic, attack, qty_attacks, banging, algo, total_cost))
+        
+        con.commit()
+        msg = "Record successfully saved"
+        
+        con.close()
+        
+        return render_template("update.html", msg=msg)
+              
+#------------------------------------------------------------
+# rules for buggy form here
+#------------------------------------------------------------
+@app.route('/rules')
+def rules():
+    return render_template('rules.html')
+
 #------------------------------------------------------------
 # a page for displaying the buggy
 #------------------------------------------------------------
@@ -377,13 +442,6 @@ def delete_buggy(buggy_id):
     finally:
         con.close()
         return render_template("updated.html", msg = msg)
-        
-#------------------------------------------------------------
-# rules for buggy form here
-#------------------------------------------------------------
-@app.route('/rules')
-def rules():
-    return render_template('rules.html')
         
 #------------------------------------------------------------
 # poster for buggy here
