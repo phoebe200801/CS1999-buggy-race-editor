@@ -1,0 +1,214 @@
+<!doctype html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+        Make Your Buggy
+</h1>
+
+<p>
+{{ msg }}
+</p>
+
+<p>
+    <a href"/rules" class="button">See Rules Here</a>
+</p>
+
+  <form action="/new" method="post">
+
+    <input type="hidden" name="id" value="{{ buggy['id'] }}"/>
+      
+    <p>
+    <label for="qty_wheels">Number of Wheels:</label>
+    <input type="text" name="qty_wheels" value=4/>
+    </p>
+    
+    <p>
+    <label for="flag_color">Colour of Flag:</label>
+    <input type="text" name="flag_color" value="red"/>
+    </p>
+    
+    <p>
+    <label for="flag_color_secondary">Secondary Flag Colour:</label>
+    <input type="text" name="flag_color_secondary" value="blue"/>
+    </p>
+    
+    <p>
+    <label for="flag_pattern">Flag Pattern:</label>
+    <select name="flag_pattern">
+        
+        <option>plain</option>
+        <option>vstripe</option>
+        <option>hstripe</option>
+        <option>dstripe</option>
+        <option>checker</option>
+        <option>spot</option>
+        
+    <select value="vstripe"/>
+    </p>
+    
+    <p>
+    <lable for="power_type">Power Type:</label>
+    <select name="power_type">
+        
+        <option>petrol</option>
+        <option>fusion</option>
+        <option>steam</option>
+        <option>bio</option>
+        <option>electric</option>
+        <option>rocket</option>
+        <option>hamster</option>
+        <option>thermonuclear</option>
+        <option>solar</option>
+        <option>wind</option>
+        
+    <select value="{{buggy['power_type']}}"/>
+    </p>
+    
+    <p>
+    <lable for="power_units">Units of Power:</label>
+    <input type="text" name="power_units" value="{{buggy['power_units']}}"/>
+    </p>
+    
+    <p>
+    <lable for="aux_power_type">Auxiliary Power Type:</label>
+    <select name="aux_power_type">
+        
+        <option>petrol</option>
+        <option>fusion</option>
+        <option>steam</option>
+        <option>bio</option>
+        <option>electric</option>
+        <option>rocket</option>
+        <option>hamster</option>
+        <option>thermonuclear</option>
+        <option>solar</option>
+        <option>wind</option>
+        
+    <select value="{{buggy['aux_power_type']}}"/>
+    </p>
+    
+    <p>
+       <lable for="aux_power_units">Units of Auxiliary Power:</label>
+       <input type="text" name="aux_power_units" value="{{buggy['aux_power_units']}}"/>
+    </p>
+    
+    <p>
+       <lable for="hamster_booster">Hamster Booster:</label>
+       <input type="text" name="hamster_booster" value="{{buggy['hamster_booster']}}"/>
+    </p>
+    
+    <p>
+       <lable for="tyres">Type of Tyres:</label>
+           <select name="tyres">
+               
+               <option>knobbly</option>
+               <option>slick</option>
+               <option>steelband</option>
+               <option>reactive</option>
+               <option>meglev</option>
+               
+            <select value="{{buggy['tyres']}}"/>
+    </p>
+    
+    <p>
+        <lable for="qty_tyres">Number of Tyres:</label>
+        <input type="text" name="qty_tyres" value="{{buggy['qty_tyres']}}"/>
+    </p>
+    
+    <p>
+        <lable for="armour">Armour:</label>
+        <select name="armour">
+            
+            <option>none</option>
+            <option>wood</option>
+            <option>aluminium</option>
+            <option>thinsteel</option>
+            <option>thicksteel</option>
+            <option>titanium</option>
+            
+        <select value="{{buggy['armour']}}"/>
+    </p>
+    
+    <p>
+        <lable for="fireproof">Fireproof?:</label>
+        <select name="fireproof">
+            
+            <option>No</option>
+            <option>Yes</option>
+            
+        <select value="{{buggy['fireproof']}}"/>
+    </p>
+    
+    <p>
+        <lable for="insulated">Insulated?:</label>
+        <select name="insulated">
+            
+            <option>No</option>
+            <option>Yes</option>
+            
+        <select value="{{buggy['insulated']}}"/>
+    </p>
+    
+    <p>
+        <lable for="antibiotic">Antibiotic?:</label>
+        <select name="antibiotic">
+            
+            <option>No</option>
+            <option>Yes</option>
+            
+        <select value="{{buggy['antibiotic']}}"/>
+    </p>
+    
+    <p>
+        <lable for="attack">Offensive Capability:</label>
+        <select name="attack">
+            
+            <option>none</option>
+            <option>spike</option>
+            <option>flame</option>
+            <option>charge</option>
+            <option>biohazard</option>
+            
+        <select value="{{buggy['attack']}}"/>
+    </p>
+    
+    <p>
+        <lable for="qty_attacks">Number of Attacks:</label>
+        <input type="text" name="qty_attacks" value="{{buggy['qty_attacks']}}"/>
+    </p>
+    
+    <p>
+        <lable for="banging">Sound System?:</label>
+        <select name="banging">
+            
+            <option>No</option>
+            <option>Yes</option>g
+            
+        <select value="{{buggy['banging']}}"/>
+    </p>
+    
+    <p>
+        <lable for="algo">Type of Algorithm:</label>
+        <select name="algo">
+            
+            <option>defensive</option>
+            <option>steady</option>
+            <option>offensive</option>
+            <option>titfortat</option>
+            <option>random</option>
+            <option>buggy</option>g
+            
+        <select value="{{buggy['algo']}}"/>
+    </p>
+    
+    <input type="submit" class="button">
+  </form>
+
+  <p>
+    <a href="/" class="button">Home</a>
+   </p>
+
+{% endblock %}
