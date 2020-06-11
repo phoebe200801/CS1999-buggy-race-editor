@@ -3,7 +3,7 @@
 
 <style>
     .cs1999-tasks .task h1{
-        border-bottom: 1px solid hotpink;
+        border-bottom: 3px solid hotpink;
     }
     .cs1999-tasks .task {
         margin: 1em;
@@ -24,7 +24,7 @@
         <h2>0-GET: Getting the Source Code</h2>
         
         <p>
-            I forked the repo on GitHub and then used <code>git close</code> to make a local copy
+        I forked the repo on GitHub and then used <code>git clone</code> to make a local copy.
         </p>
         
         <p>
@@ -36,15 +36,24 @@
         <h2>0-RUN: Get the App Running and View it in a Browser</h2>
         
         <p>
-            I used flask
+        I installed Flask using <code>pip3 install flask</code> to allow for the server to run. The server produced the http://localhost:500 when <code>app.py</code> is run.
         </p>
+        
+        <p>
+        When the program was running, at the point, it had the basic style. The page to make a buggy didn't have many inputs.
+        </p>
+        
     </div>
     
     <div class="task">
         <h2>0-CHANGE: Make a Change to a Templated and See it Appear</h2>
         
         <p>
-            I edited the style
+        For this task I edited the style of the program using CSS. I did this in <code>/templates/base.html</code>. I changed the font type for the headings.
+        </p>
+        
+        <p>
+        This code has since been removed.
         </p>
     </div>
     
@@ -52,7 +61,35 @@
         <h2>1-ADD: Add More Data to the Form</h2>
         
         <p>
-        I added data to the form in buggy-form.html
+        I used <code>/templates/buggy-form.html</code> to add the following to the buggy form:
+        </p>
+        <ul>
+            <code>flag_color,</code>
+            <code>flag_color_secondary,</code>
+            <code>flag_pattern,</code>
+            <code>power_type,</code>
+            <code>power_units,</code>
+            <code>aux_power_type,</code>
+            <code>aux_power_units,</code>
+            <code>hamster_booster,</code>
+            <code>tyres,</code>
+            <code>qty_tyres,</code>
+            <code>armour,</code>
+            <code>fireproof,</code>
+            <code>insulated,</code>
+            <code>antibiotic,</code>
+            <code>attack,</code>
+            <code>qty_attacks,</code>
+            <code>banging,</code>
+            <code>algo</code>
+        </ul>
+        
+        <p>
+        Although this was all showing up in the form with text inputs, nothing was being saved to the database :(
+        </p>
+        
+        <p>
+        To solve this issue I removed <code>database.db</code> and then added in the additional fields as listed above with the suitable type assignment (e.g. <code>VARCHAR</code> or <code>INTEGER</code>). I then inputted <code> python3 init_db.py </code> to allow for the fields to be ran and recognised in the database, resulting in the information above to be added to the database.
         </p>
     </div>
     
@@ -60,15 +97,54 @@
         <h2>1-VALID: Add Basic Data Validation</h2>
         
         <p>
-            I added validation
+        To add validation to the form, I used <code>isdigit()</code> to any input that needed to be a number. For example <code>qty_wheels</code> needed to be a number.
         </p>
+        
+        <p>
+        If the input wasn't a number, an error message was outputted to the user telling them to input a number and not a word. The message also included what field on the form needed to be changed.
+        </p>
+        
+        <p>
+        The validation looked like this:
+        </p>
+        
+        <p>
+        <code>if not qty_wheels.isdigit():</code>
+        </code>
+        </p>
+        
+        <p>
+        With the error message looking like this:
+        </p>
+        
+        <p>
+        <code>msg = f"INVALID! PLEASE ENTER AN INTEGER: Number of Wheels"
+       </p>
+       
     </div>
     
     <div class="task">
         <h2>1-STYLE: Style Your Editor Just How You Like It</h2>
         
         <p>
-            I made it pretty by adding cars
+        I changed the overall style of the program by using the file <code> /static/app.css </code>. Here I changed the background colour to light grey and the striped border to two shades of pink. The headings were changed to pink and grey and a consistent font was set of all pieces of text including buttons and inputs.
+        </p>
+        
+        <p>
+        I also used the <code>marquee</code> tag to allow for two images of pink cars to "drive" across the homescreen. This was done in <code> /templates/index.html </code> so that it would only appear on the homescreen and nowhere else.
+        </p>
+        
+        <p>
+        When doing this task, I found that the CSS style didn't update automatically. To fix that issue I had to add in a random function to the <code>a</code> tag in <code> /templates/base.html </code>.
+        </p>
+        
+        
+        <p>
+        The issue was with caching. By setting <code> app.css </code> to hold a random number value, it means that the stylesheet will appear to be dynamic as opposed to static.
+        </p>
+        
+        <p>
+        SIDE NOTE: Pink is pretty and we love little pink buggies driving across the screen :D
         </p>
     </div>
     
@@ -76,15 +152,20 @@
         <h2>2-EDIT: Edit the Record by Loading its Current Values into the Form</h2>
         
         <p>
-            I added stuff automatically
+        I added a <code> value </code> attribute to every input on the form. This meant that when the user inputted the data, the data was saved in the form as well as in the database.
         </p>
+
     </div>
     
     <div class="task">
         <h2>2-FORM: Make the Form Better</h2>
         
         <p>
-            I made the form fancy
+        I added in basic instructions of the user to allow for ease of use and make it clear what to input.
+        </p>
+        
+        <p>
+        This was done through a separate rules page which could be accessed both on the homescreen and on the Make Your Buggy page.
         </p>
     </div>
     
@@ -153,5 +234,9 @@
     </div>
     
 </section>
+
+<p>
+ <a href="/" class="button">Home</a>
+</p>
 
 {% endblock %}
