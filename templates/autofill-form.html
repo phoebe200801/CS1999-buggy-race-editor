@@ -22,7 +22,7 @@
       
     <p>
     <label for="qty_wheels">Number of Wheels:</label>
-    <input type="text" name="qty_wheels" value=4/>
+    <input type="text" name="qty_wheels" value=4 />
     </p>
     
     <p>
@@ -46,7 +46,9 @@
         <option>checker</option>
         <option>spot</option>
         
-    <select value="vstripe"/>
+        <option selected="selected">vstripe</option>
+        
+    <select/>
     </p>
     
     <p>
@@ -64,12 +66,14 @@
         <option>solar</option>
         <option>wind</option>
         
-    <select value="{{buggy['power_type']}}"/>
+        <option selected="selected">electric</option>
+        
+    <select/>
     </p>
     
     <p>
     <lable for="power_units">Units of Power:</label>
-    <input type="text" name="power_units" value="{{buggy['power_units']}}"/>
+    <input type="text" name="power_units" value=5 />
     </p>
     
     <p>
@@ -87,17 +91,19 @@
         <option>solar</option>
         <option>wind</option>
         
-    <select value="{{buggy['aux_power_type']}}"/>
+        <option selected="selected">petrol</option>
+        
+    <select/>
     </p>
     
     <p>
        <lable for="aux_power_units">Units of Auxiliary Power:</label>
-       <input type="text" name="aux_power_units" value="{{buggy['aux_power_units']}}"/>
+       <input type="text" name="aux_power_units" value=5 />
     </p>
     
     <p>
        <lable for="hamster_booster">Hamster Booster:</label>
-       <input type="text" name="hamster_booster" value="{{buggy['hamster_booster']}}"/>
+       <input type="text" name="hamster_booster" value=1 />
     </p>
     
     <p>
@@ -110,12 +116,14 @@
                <option>reactive</option>
                <option>meglev</option>
                
-            <select value="{{buggy['tyres']}}"/>
+               <option selected="selected">slick</option>
+               
+            <select/>
     </p>
     
     <p>
         <lable for="qty_tyres">Number of Tyres:</label>
-        <input type="text" name="qty_tyres" value="{{buggy['qty_tyres']}}"/>
+        <input type="text" name="qty_tyres" value=5 />
     </p>
     
     <p>
@@ -129,7 +137,9 @@
             <option>thicksteel</option>
             <option>titanium</option>
             
-        <select value="{{buggy['armour']}}"/>
+            <option selected="selected">wood</option>
+            
+        <select/>
     </p>
     
     <p>
@@ -139,7 +149,9 @@
             <option>No</option>
             <option>Yes</option>
             
-        <select value="{{buggy['fireproof']}}"/>
+            <option selected="selected">No</option>
+            
+        <select/>
     </p>
     
     <p>
@@ -149,7 +161,9 @@
             <option>No</option>
             <option>Yes</option>
             
-        <select value="{{buggy['insulated']}}"/>
+            <option selected="selected">No</option>
+            
+        <select/>
     </p>
     
     <p>
@@ -159,7 +173,9 @@
             <option>No</option>
             <option>Yes</option>
             
-        <select value="{{buggy['antibiotic']}}"/>
+            <option selected="selected">No</option>
+            
+        <select/>
     </p>
     
     <p>
@@ -172,12 +188,14 @@
             <option>charge</option>
             <option>biohazard</option>
             
-        <select value="{{buggy['attack']}}"/>
+            <option selected="selected">spike</option>
+            
+        <select/>
     </p>
     
     <p>
         <lable for="qty_attacks">Number of Attacks:</label>
-        <input type="text" name="qty_attacks" value="{{buggy['qty_attacks']}}"/>
+        <input type="text" name="qty_attacks" value=2 />
     </p>
     
     <p>
@@ -187,7 +205,9 @@
             <option>No</option>
             <option>Yes</option>g
             
-        <select value="{{buggy['banging']}}"/>
+            <option selected="selected">No</option>
+            
+        <select/>
     </p>
     
     <p>
@@ -199,9 +219,11 @@
             <option>offensive</option>
             <option>titfortat</option>
             <option>random</option>
-            <option>buggy</option>g
+            <option>buggy</option>
             
-        <select value="{{buggy['algo']}}"/>
+            <option selected="selected">buggy</option>
+            
+        <select/>
     </p>
     
     <input type="submit" class="button">
@@ -210,5 +232,39 @@
   <p>
     <a href="/" class="button">Home</a>
    </p>
+
+<style>
+    h1{
+        font-family: Rockwell, serif;
+        text-align: center;
+    }
+
+    p {
+        text-align: left;
+        display: inline-block;
+        overflow: hidden;
+        clear: both;
+        padding: 10px;
+    }
+
+    form {
+       width: 0px;
+       padding: 10px;
+    }
+
+    input, select {
+        font-family: Rockwell, serif;
+        color: grey;
+        font-size: 20px;
+        
+        width: 250px;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #FDECEC;
+        border-color: white;
+    }
+
+</style>
 
 {% endblock %}
