@@ -16,6 +16,12 @@
     }
 </style>
 
+<div class="car1" style="position: relative; bottom: 10px">
+    <marquee behaviour="scroll" direction="right" scrollamount="15">
+        <img src="/static/pink-car.png" width="120" height="80" alt="Natural"/>
+    </marquee>
+</div>
+
 <section class="cs1999-tasks">
     
     <h1>Buggy Race Editor: The Making Of</h1>
@@ -161,7 +167,7 @@
         <h2>2-FORM: Make the Form Better</h2>
         
         <p>
-        I added in basic instructions of the user to allow for ease of use and make it clear what to input.
+        I added in basic instructions for the user to allow for ease of use and make it clear what to input.
         </p>
         
         <p>
@@ -173,7 +179,15 @@
         <h2>2-COST: Calculate and Save the Game Cost of the Buggy</h2>
         
         <p>
-            I saved the cost
+        I generated the cost by using the costs given to us. This was done by calculating the cost for each different element e.g. <code>hamster_booster</code>. Once all the costs were calculated, I added them all together to calculate the total cost of the buggy.
+        </p>
+        
+        <p>
+        I set all the cost calculations to be integers by using <code> int()</code>.
+        </p>
+        
+        <p>
+        In order to save the data into the database, I had to use <code> rm database.db</code> to remove it so that when I initalised it using <code>python3 init_db.py</code> the total cost column was added to the database, allowing for the cost to be saved to the database.
         </p>
     </div>
     
@@ -181,7 +195,15 @@
         <h2>2-RULES: Add Validation According to the Game Rules</h2>
         
         <p>
-            I added rules
+        Using the rules given to us, I created error messages on the Make Your Buggy page, which would be displayed when the user input something that violated the rules.
+        </p>
+        
+        <p>
+        For example: <code>if int(qty_wheels)%2 !=0:</code>
+        </p>
+        
+        <p>
+        The above code checks if the input for <code>qty_wheels</code> is even, as the rules require.
         </p>
     </div>
     
@@ -189,7 +211,7 @@
         <h2>3-ENV: Switch to Using Development or Production Environments</h2>
         
         <p>
-            I used development the whole time
+        From the beginning of the project I used the development environment by using the command: <code>FLASK_ENV=development python3 app.py</code>
         </p>
     </div>
     
@@ -197,7 +219,7 @@
         <h2>3-AUTOFILL: Add Auto-Fill to the Edit Forms</h2>
         
         <p>
-            I did not complete this
+        For this task I created a button which, when pressed, would autofill the form. I struggled with this for a while until I made a separate file <code>autofill-form.html</code> which used the code and format of <code>buggy-form.html</code>. When the button is pressed, it takes the user to this page which is identical to the page they were on but with all the inputs automatically filled for a suitable buggy.
         </p>
     </div>
     
@@ -205,7 +227,19 @@
         <h2>3-MULTI: Allow Different Buggies to be Created</h2>
         
         <p>
-            I did this
+        Multiple buggies can be added and displayed. To do this I changed the code in <code>@app.route('/buggy')</code>.
+        </p>
+        
+        <p>
+        Here I had to change the SQL code from <code>record = cur.fetchone()</code> to <code>records = cur.fetchall()</code>. This allowed for the database to fetch and display all the buggies in <code>buggy.html</code>.
+        </p>
+        
+        <p>
+        I had to create a variable called <code>buggy_id</code> which held the value of the buggy's ID.
+        </p>
+        
+        <p>
+        In order to display all buggies on the Your Buggies page, I needed to use a for loop to loop through all the buggies in database.db. The for loop was done in HTML in <code> buggy.html</code>
         </p>
     </div>
     
@@ -213,7 +247,15 @@
         <h2>3-DEL: Allow Buggies to be Deleted</h2>
         
         <p>
-            Buggies can be deleted
+        Buggies can be deleted. This is possible because I created a new app route. Within this route I used the SQL method <code>DELETE</code> to delete the chosen buggy from the database.
+        </p>
+        
+        <p>
+        This is a <code>POST</code> method because I am not requesting data from a specific source, instead I am submitting data to a specific source to induce a change on the serve side of the program.
+        </p>
+        
+        <p>
+        I created a submit button in <code>buggy.html</code> which is displayed at the bottom of each buggy table. When the button is pressed the buggy is deleted.
         </p>
     </div>
     
@@ -221,7 +263,7 @@
         <h2>3-FLAG: Display the Pennant Graphically</h2>
         
         <p>
-            Flag displayed
+        I started this task, however, I did not complete it.
         </p>
     </div>
     
@@ -229,11 +271,17 @@
         <h2>3-TESTS: Write Some Tests</h2>
         
         <p>
-            Tested using 'FIXME'
+        Although I did not test using <code>unittest</code>, I consistently used <code>FIXME</code> statments throughout in order to test. Once I was sure parts if the code worked, I would remove these statements.
         </p>
     </div>
     
 </section>
+
+<div class="car2" style="position: relative; bottom: 10px">
+    <marquee behaviour="scroll" direction="right" scrollamount="15">
+        <img src="/static/pink-car.png" width="120" height="80" alt="Natural"/>
+    </marquee>
+</div>
 
 <p>
  <a href="/" class="button">Home</a>
