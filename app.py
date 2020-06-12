@@ -310,11 +310,13 @@ def create_buggy():
 #------------------------------------------------------------
 # rules for buggy form here
 #------------------------------------------------------------
-@app.route('/autofill', methods=['POST'])
+@app.route('/autofill', methods=['GET','POST'])
 def autofill():
-    if request.method == 'POST':
+    if request.method == 'GET':
     
-        return render_template('autofill-form.html')
+        return render_template('autofill-form.html', buggy=None)
+        
+    elif request.method == 'POST':
         
         con = sql.connect(DATABASE_FILE)
         con.row_factory = sql.Row
@@ -349,6 +351,8 @@ def autofill():
         
         banging = request.form['banging']
         algo = request.form['algo']
+        
+        return render_template('autofill-form.html', msg=msg, buggy = record)
         
         msg = f"qty_wheels={qty_wheels}", "flag_color={flag_color}", "flag_color_secondary={flag_color_secondary}", "flag_pattern={flag_pattern}", "power_type={power_type}", "power_units={power_units}", "aux_power_type={aux_power_type}", "aux_power_units={aux_power_units}", "hamster_booster={hamster_booster}", "tyres={tyres}", "qty_tyres={qty_tyres}", "armour={armour}", "fireproof={fireproof}", "insulated={insulated}", "antibiotic={antibiotic}", "attack={attack}", "qty_attacks={qty_attacks}", "banging={banging}", "algo={algo}"
            
@@ -403,7 +407,7 @@ def edit_buggy(buggy_id):
 #   using it because we'll be dipping diectly into the
 #   database
 #------------------------------------------------------------
-@app.route('/json')
+@app.route('/json/<buggy_id>', methods=['GET'])
 def summary(buggy_id):
   con = sql.connect(DATABASE_FILE)
   con.row_factory = sql.Row
